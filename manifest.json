@@ -1,0 +1,14 @@
+{
+  "name": "URL Changer",
+  "description": "",
+  "version": "1.0",
+  "permissions": [],
+  "background": {
+    "scripts": ["./dist/js/background.js"],
+    "persistent": false
+  },
+  "browser_action": {},
+  "options_page": "./src/core/setting.html",
+  "icons": {},
+  "manifest_version": 2
+}

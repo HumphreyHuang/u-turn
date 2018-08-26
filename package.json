@@ -1,0 +1,24 @@
+{
+  "name": "u-turn",
+  "version": "1.0.0",
+  "main": "manifest.json",
+  "author": "Humphrey Huang",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build-ts && yarn build-css",
+    "watch": "concurrently --kill-others \"yarn watch-ts\" \"yarn watch-css\"",
+    "build-ts": "tsc -b",
+    "watch-ts": "tsc -w",
+    "build-css": "node-sass src/style --output=dist/css",
+    "watch-css": "node-sass --watch src/style --output=dist/css"
+  },
+  "dependencies": {
+    "@types/chrome": "^0.0.72",
+    "node-sass": "^4.9.3",
+    "sass": "^1.13.0",
+    "typescript": "^3.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1"
+  }
+}
