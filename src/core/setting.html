@@ -13,16 +13,25 @@
         <div class="removeSection">
             <h3>Remove</h3>
             <div class="row">
-                <label for="KeyWord">Key Word:</label>
+                <label for="between">Between:</label>
                 <div class="field">
-                    <input type="text">
+                    <input type="text" id="betweenStart"> and <input type="text" id="betweenEnd">
                 </div>
             </div>
         </div>
         <div class="replaceSection">
             <h3>Replace</h3>
+            <div class="row">
+                <div class="field">
+                    <input type="text" id="replaceOriginal"> with <input type="text" id="replaceNew">
+                </div>
+            </div>
         </div>
+        <br>
+        <button id="saveBtn">Save</button>
     </div>
 </body>
+
+<script src="../../dist/js/setting.js"></script>
 
 </html>
