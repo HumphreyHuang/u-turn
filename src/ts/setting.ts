@@ -1,16 +1,28 @@
+window.onload = () => {
+	chrome.storage.sync.get('data', field => {
+		const {
+			betweenStart,
+			betweenEnd,
+			replaceOriginal,
+			replaceNew
+		} = field.data;
+
+		getElementsById('betweenStart').value = betweenStart;
+		getElementsById('betweenEnd').value = betweenEnd;
+		getElementsById('replaceOriginal').value = replaceOriginal;
+		getElementsById('replaceNew').value = replaceNew;
+	});
+};
+
 const btn = document.getElementById('saveBtn');
 
 btn!.addEventListener('click', () => {
-	save();
-});
-
-function save() {
-	interface SettingData {
+	type SettingData = {
 		betweenStart: string;
 		betweenEnd: string;
 		replaceOriginal: string;
 		replaceNew: string;
-	}
+	};
 
 	const betweenStart = getElementsById('betweenStart').value;
 
@@ -29,9 +41,9 @@ function save() {
 
 	chrome.storage.sync.set({ data }, () => {
 		// TODO Error checking
-		window.close();
+		//window.close();
 	});
-}
+});
 
 function getElementsById(id: string) {
 	return document.getElementById(id) as HTMLInputElement;
