@@ -1,3 +1,5 @@
+import '../style/main.scss';
+
 window.onload = () => {
 	chrome.storage.sync.get('data', field => {
 		const {

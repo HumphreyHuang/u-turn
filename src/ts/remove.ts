@@ -1,3 +1,3 @@
-// export const remove = () => {
-// 	console.log('remove');
-// };
+export const remove = () => {
+	console.log('remove');
+};
