@@ -6,12 +6,13 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "yarn build-ts && yarn build-css",
-		"watch": "webpack --config webpack/webpack.dev.js --watch",
+		"watch": "concurrently --kill-others \"webpack --config webpack/webpack.dev.js --watch\" \"yarn watch-css\"",
 		"build-css": "node-sass src/style --output=dist/css",
 		"watch-css": "node-sass --watch src/style --output=dist/css"
 	},
 	"devDependencies": {
 		"@types/chrome": "^0.0.72",
+		"concurrently": "^4.0.1",
 		"node-sass": "^4.9.3",
 		"sass": "^1.13.0",
 		"sass-loader": "^7.1.0",
