@@ -16,34 +16,37 @@ window.onload = () => {
 
 const btn = document.getElementById('saveBtn');
 
-btn!.addEventListener('click', () => {
-	type SettingData = {
-		betweenStart: string;
-		betweenEnd: string;
-		replaceOriginal: string;
-		replaceNew: string;
-	};
+btn!.addEventListener(
+	'click',
+	(): void => {
+		type SettingData = {
+			betweenStart: string;
+			betweenEnd: string;
+			replaceOriginal: string;
+			replaceNew: string;
+		};
 
-	const betweenStart = getElementsById('betweenStart').value;
+		const betweenStart = getElementsById('betweenStart').value;
 
-	const betweenEnd = getElementsById('betweenEnd').value;
+		const betweenEnd = getElementsById('betweenEnd').value;
 
-	const replaceOriginal = getElementsById('replaceOriginal').value;
+		const replaceOriginal = getElementsById('replaceOriginal').value;
 
-	const replaceNew = getElementsById('replaceNew').value;
+		const replaceNew = getElementsById('replaceNew').value;
 
-	const data = {
-		betweenStart,
-		betweenEnd,
-		replaceOriginal,
-		replaceNew
-	} as SettingData;
+		const data = {
+			betweenStart,
+			betweenEnd,
+			replaceOriginal,
+			replaceNew
+		} as SettingData;
 
-	chrome.storage.sync.set({ data }, () => {
-		// TODO Error checking
-		//window.close();
-	});
-});
+		chrome.storage.sync.set({ data }, () => {
+			// TODO Error checking
+			//window.close();
+		});
+	}
+);
 
 function getElementsById(id: string) {
 	return document.getElementById(id) as HTMLInputElement;

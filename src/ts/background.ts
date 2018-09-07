@@ -1,21 +1,23 @@
 import { remove } from './remove';
+import { replace } from './replace';
 
 chrome.browserAction.onClicked.addListener(() => {
 	init();
 });
 
-function init() {
-	remove();
+function init(): void {
 	chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
 		const tabID = tabs[0].id;
-		chrome.storage.sync.get('data', field => {
+		const currentUrl = tabs[0].url;
+
+		chrome.storage.sync.get('data', setting => {
 			// TODO Check if there is a setting has been sanved
-			const {
-				betweenStart,
-				betweenEnd,
-				replaceOriginal,
-				replaceNew
-			} = field.data;
+			// TODO make sure other tabs won't affect the tab you are currently on
+
+			if (currentUrl) {
+				remove(currentUrl, setting);
+				replace(currentUrl, setting);
+			}
 		});
 		// if (tabID) chrome.tabs.update(tabID, { url: 'https://www.google.ca' });
 	});
