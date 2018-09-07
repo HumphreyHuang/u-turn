@@ -1,14 +1,19 @@
 {
-	"name": "URL Changer",
-	"description": "",
-	"version": "1.0",
-	"permissions": ["tabs", "storage"],
-	"background": {
-		"scripts": ["./dist/js/background.js"],
-		"persistent": false
-	},
-	"browser_action": {},
-	"options_page": "./src/core/setting.html",
-	"icons": {},
-	"manifest_version": 2
+  "name": "URL Changer",
+  "description": "",
+  "version": "1.0",
+  "permissions": ["tabs", "storage"],
+  "background": {
+    "scripts": ["./dist/js/background.js"],
+    "persistent": false
+  },
+  "browser_action": {},
+  "options_page": "./src/core/setting.html",
+  "icons": {
+    "18": "./src/image/icon_18.png",
+    "24": "./src/image/icon_24.png",
+    "36": "./src/image/icon_36.png",
+    "48": "./src/image/icon_48.png"
+  },
+  "manifest_version": 2
 }
