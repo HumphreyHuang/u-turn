@@ -1,5 +1,4 @@
-import { remove } from './remove';
-import { replace } from './replace';
+import { update } from './update';
 
 chrome.browserAction.onClicked.addListener(() => {
 	init();
@@ -7,7 +6,7 @@ chrome.browserAction.onClicked.addListener(() => {
 
 function init(): void {
 	chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-		const tabID = tabs[0].id;
+		const tabID = tabs[0].id!;
 		const currentUrl = tabs[0].url;
 
 		chrome.storage.sync.get('data', setting => {
@@ -15,10 +14,8 @@ function init(): void {
 			// TODO make sure other tabs won't affect the tab you are currently on
 
 			if (currentUrl) {
-				remove(currentUrl, setting);
-				replace(currentUrl, setting);
+				update(tabID, currentUrl, setting);
 			}
 		});
-		// if (tabID) chrome.tabs.update(tabID, { url: 'https://www.google.ca' });
 	});
 }
