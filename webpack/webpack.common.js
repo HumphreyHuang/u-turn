@@ -4,8 +4,7 @@ module.exports = {
 	entry: {
 		background: path.join(__dirname, '../src/ts/background.ts'),
 		setting: path.join(__dirname, '../src/ts/setting.ts'),
-		remove: path.join(__dirname, '../src/ts/remove.ts'),
-		replace: path.join(__dirname, '../src/ts/replace.ts')
+		update: path.join(__dirname, '../src/ts/update.ts')
 	},
 	output: {
 		filename: '[name].js',
