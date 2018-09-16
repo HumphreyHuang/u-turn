@@ -10,11 +10,34 @@ function init(): void {
 		const currentUrl = tabs[0].url;
 
 		chrome.storage.sync.get('data', setting => {
-			// TODO Check if there is a setting has been sanved
-			// TODO make sure other tabs won't affect the tab you are currently on
+			type SettingData = {
+				betweenStart: string;
+				betweenEnd: string;
+				replaceOriginal: string;
+				replaceNew: string;
+			};
 
-			if (currentUrl) {
-				update(tabID, currentUrl, setting);
+			const {
+				betweenStart,
+				betweenEnd,
+				replaceOriginal,
+				replaceNew
+			} = setting.data;
+
+			const settings = {
+				betweenStart,
+				betweenEnd,
+				replaceOriginal,
+				replaceNew
+			} as SettingData;
+
+			const hasSettings =
+				betweenStart || betweenEnd || replaceOriginal || replaceNew;
+
+			if (currentUrl && hasSettings) {
+				update(tabID, currentUrl, settings);
+			} else {
+				alert('Test');
 			}
 		});
 	});
