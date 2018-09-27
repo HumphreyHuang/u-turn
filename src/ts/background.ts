@@ -37,7 +37,7 @@ function init(): void {
 			if (currentUrl && hasSettings) {
 				update(tabID, currentUrl, settings);
 			} else {
-				alert('Test');
+				alert('Well..Please config your options first :)');
 			}
 		});
 	});

@@ -6,6 +6,7 @@
 		"outDir": "dist/js",
 		"rootDir": "src/ts",
 		"strict": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"noImplicitAny": false
 	}
 }

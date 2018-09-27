@@ -1,5 +1,5 @@
 {
-	"name": "URL Changer",
+	"name": "U-Turn (URL Changer)",
 	"description": "",
 	"version": "1.0",
 	"permissions": ["tabs", "storage"],

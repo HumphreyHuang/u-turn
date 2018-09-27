@@ -42,8 +42,7 @@ btn!.addEventListener(
 		} as SettingData;
 
 		chrome.storage.sync.set({ data }, () => {
-			// TODO Error checking
-			//window.close();
+			window.close();
 		});
 	}
 );
