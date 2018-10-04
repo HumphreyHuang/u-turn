@@ -19,13 +19,6 @@ const btn = document.getElementById('saveBtn');
 btn!.addEventListener(
 	'click',
 	(): void => {
-		type SettingData = {
-			betweenStart: string;
-			betweenEnd: string;
-			replaceOriginal: string;
-			replaceNew: string;
-		};
-
 		const betweenStart = getElementsById('betweenStart').value;
 
 		const betweenEnd = getElementsById('betweenEnd').value;
@@ -39,7 +32,7 @@ btn!.addEventListener(
 			betweenEnd,
 			replaceOriginal,
 			replaceNew
-		} as SettingData;
+		};
 
 		chrome.storage.sync.set({ data }, () => {
 			window.close();

@@ -7,16 +7,9 @@ chrome.browserAction.onClicked.addListener(() => {
 function init(): void {
 	chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
 		const tabID = tabs[0].id!;
-		const currentUrl = tabs[0].url;
+		const currentUrl = tabs[0].url!;
 
 		chrome.storage.sync.get('data', setting => {
-			type SettingData = {
-				betweenStart: string;
-				betweenEnd: string;
-				replaceOriginal: string;
-				replaceNew: string;
-			};
-
 			const {
 				betweenStart,
 				betweenEnd,
@@ -29,12 +22,24 @@ function init(): void {
 				betweenEnd,
 				replaceOriginal,
 				replaceNew
-			} as SettingData;
+			};
 
 			const hasSettings =
 				betweenStart || betweenEnd || replaceOriginal || replaceNew;
 
-			if (currentUrl && hasSettings) {
+			// Pre set settings for mb3online.com sites
+			if (!hasSettings && currentUrl.includes('sandbox.mb3online.com')) {
+				const data = {
+					betweenStart: 'em,hm,pa,mc',
+					betweenEnd: '.sandbox',
+					replaceOriginal: '.com',
+					replaceNew: '.local'
+				};
+
+				chrome.storage.sync.set({ data }, () => {});
+			}
+
+			if (hasSettings) {
 				update(tabID, currentUrl, settings);
 			} else {
 				alert('Well..Please config your options first :)');
