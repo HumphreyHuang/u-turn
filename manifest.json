@@ -10,10 +10,10 @@
 	"browser_action": {},
 	"options_page": "./src/setting.html",
 	"icons": {
-		"18": "./src/image/icon_18.png",
-		"24": "./src/image/icon_24.png",
-		"36": "./src/image/icon_36.png",
-		"48": "./src/image/icon_48.png"
+		"18": "./src/images/icon_18.png",
+		"24": "./src/images/icon_24.png",
+		"36": "./src/images/icon_36.png",
+		"48": "./src/images/icon_48.png"
 	},
 	"manifest_version": 2
 }
