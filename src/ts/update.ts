@@ -2,10 +2,8 @@ export async function update(tabID: number, currentUrl, setting) {
 	const url_replaced = await replace(currentUrl, setting);
 	const url_final = await remove(url_replaced, setting);
 
-	if (url_final && tabID) {
-		console.log(url_final);
-
-		// chrome.tabs.update(tabID, { url: url_final });
+	if ((url_replaced || url_final) && tabID) {
+		chrome.tabs.update(tabID, { url: url_final || url_replaced });
 	}
 }
 
