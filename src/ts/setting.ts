@@ -1,16 +1,18 @@
 window.onload = () => {
     chrome.storage.sync.get("data", field => {
-        const {
-            betweenStart,
-            betweenEnd,
-            replaceOriginal,
-            replaceNew
-        } = field.data;
+        if (field.data) {
+            const {
+                betweenStart,
+                betweenEnd,
+                replaceOriginal,
+                replaceNew
+            } = field.data;
 
-        getElementsById("betweenStart").value = betweenStart;
-        getElementsById("betweenEnd").value = betweenEnd;
-        getElementsById("replaceOriginal").value = replaceOriginal;
-        getElementsById("replaceNew").value = replaceNew;
+            getElementsById("betweenStart").value = betweenStart;
+            getElementsById("betweenEnd").value = betweenEnd;
+            getElementsById("replaceOriginal").value = replaceOriginal;
+            getElementsById("replaceNew").value = replaceNew;
+        }
     });
 };
 
