@@ -1,0 +1,19 @@
+{
+    "name": "U-Turn (URL Changer)",
+    "description": "",
+    "version": "1.0",
+    "permissions": ["tabs", "storage"],
+    "background": {
+        "scripts": ["./js/background.js"],
+        "persistent": false
+    },
+    "browser_action": {},
+    "options_page": "./setting.html",
+    "icons": {
+        "18": "./images/icon_18.png",
+        "24": "./images/icon_24.png",
+        "36": "./images/icon_36.png",
+        "48": "./images/icon_48.png"
+    },
+    "manifest_version": 2
+}
